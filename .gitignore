@@ -1,0 +1,33 @@
+# Compiler files
+cache/
+out/
+
+# Foundry
+broadcast/
+report/
+coverage/
+coverage.json
+.forge-snapshots/
+
+# Environment Variables
+.env
+.env.*
+
+# Node modules
+node_modules/
+
+# Docs & Agent artifacts
+docs/
+.kiro/
+scratch/
+walkthrough.md
+task.md
+implementation_plan.md
+
+# OS / Editor
+.DS_Store
+.vscode/
+.idea/
+
+# External cloned repos
+reactive-smart-contract-demos/

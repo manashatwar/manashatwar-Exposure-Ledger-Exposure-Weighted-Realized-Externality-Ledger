@@ -1,0 +1,17 @@
+[profile.default]
+bytecode_hash = "none"
+evm_version = "cancun"
+ffi = true
+fs_permissions = [{access = "read-write", path = ".forge-snapshots/"}]
+libs = ["lib"]
+out = "out"
+solc_version = "0.8.30"
+src = "src"
+via_ir = false
+# ILFlowRSC.sol uses relative reactive-lib imports that are not present in this repo.
+# It is superseded by src/reactive/ExposureLedgerRSC.sol (Phase 3).
+skip = ["src/ILFlowRSC.sol"]
+
+[lint]
+exclude_lints = ["screaming-snake-case-immutable", "screaming-snake-case-const"]
+lint_on_build = false
