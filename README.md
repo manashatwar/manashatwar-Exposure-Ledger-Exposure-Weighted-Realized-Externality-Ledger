@@ -95,35 +95,7 @@ Proven sound: Sum of all LP shares = Total RSPE (conservation property)
 
 ---
 
-## Project Structure
 
-```text
-.
-├── src/
-│   ├── ExposureLedgerHook.sol          # Main Uniswap v4 hook
-│   ├── ReactiveCallbackRelayer.sol     # Sepolia callback Relayer
-│   ├── ILFlowRSC.sol                   # Base RSC abstraction
-│   ├── reactive/
-│   │   └── ExposureLedgerRSC.sol       # True Reactive Smart Contract (Event listener)
-│   └── interfaces/
-│       └── IExposureLedger.sol         # Hook interface
-├── test/
-│   ├── Phase3Test.t.sol                # Integration test entry point
-│   ├── ExposureLedger*.t.sol           # Core test suites
-│   └── mocks/                          # Mock PoolManagers & Routers
-├── script/
-│   ├── DeployRelayer.s.sol             # Deploy Relayer (Sepolia)
-│   ├── DeployRSC.s.sol                 # Deploy RSC (Reactive Lasna)
-│   ├── MineHookAddress.s.sol           # CREATE2 vanity address miner
-│   └── E2ETestFlow.s.sol               # End-to-end full deployment test flow
-├── .kiro/                              # Comprehensive documentation folder
-├── lib/                                # Foundry dependencies
-├── .env.example                        # Environment variables template
-├── QUICKSTART.md                       # E2E Deployment and Startup Guide
-└── README.md                           # This file
-```
-
----
 
 ## Documentation
 
