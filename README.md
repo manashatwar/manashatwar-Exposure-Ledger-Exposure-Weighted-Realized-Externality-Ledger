@@ -129,11 +129,10 @@ Proven sound: Sum of all LP shares = Total RSPE (conservation property)
 
 | Document | Description |
 |----------|-------------|
-| [RESEARCH.md](.kiro/docs/RESEARCH.md) | Academic-grade specification with formal proofs, mathematical model, and literature review |
-| [REQUIREMENTS.md](.kiro/docs/REQUIREMENTS.md) | Functional requirements, invariants, acceptance criteria, security properties |
-| [DESIGN.md](.kiro/docs/DESIGN.md) | Technical design with state machines, complete Solidity interfaces, gas optimization |
-| [ARCHITECTURE_VALIDATION.md](.kiro/ARCHITECTURE_VALIDATION.md) | 50-page validation that the architecture solves the problem (Score: 9/10) |
-| [TASKS.md](.kiro/TASKS.md) | Comprehensive implementation roadmap (7 phases, 6 weeks, end-to-end) |
+| [RESEARCH.md](https://github.com/manashatwar/manashatwar-Exposure-Ledger-Exposure-Weighted-Realized-Externality-Ledger/blob/main/docs/RESEARCH.md) | Academic-grade specification with formal proofs, mathematical model, and literature review |
+| [REQUIREMENTS.md](https://github.com/manashatwar/manashatwar-Exposure-Ledger-Exposure-Weighted-Realized-Externality-Ledger/blob/main/docs/REQUIREMENTS.md) | Functional requirements, invariants, acceptance criteria, security properties |
+| [DESIGN.md](https://github.com/manashatwar/manashatwar-Exposure-Ledger-Exposure-Weighted-Realized-Externality-Ledger/blob/main/docs/DESIGN.md) | Technical design with state machines, complete Solidity interfaces, gas optimization |
+| [ARCHITECTURE_VALIDATION.md](https://github.com/manashatwar/manashatwar-Exposure-Ledger-Exposure-Weighted-Realized-Externality-Ledger/blob/main/docs/ARCHITECTURE_VALIDATION.md) | 50-page validation that the architecture solves the problem (Score: 9/10) |
 
 ---
 
@@ -141,7 +140,7 @@ Proven sound: Sum of all LP shares = Total RSPE (conservation property)
 
 **Current Phase:** Pre-Implementation (Documentation Complete) ✅
 
-**Next Steps:** See [TASKS.md](.kiro/TASKS.md) for detailed implementation roadmap.
+**Next Steps:** Implementation tasks tracked internally.
 
 ### Phase 1: Core Infrastructure (Week 1-2) - TODO
 - [ ] Create ExposureLedgerHook contract
@@ -229,8 +228,8 @@ Enables future features:
 ### Install Dependencies
 ```bash
 # Clone repository
-git clone https://github.com/manashatwar/ILflow-hook-.git
-cd ILflow-hook
+git clone https://github.com/manashatwar/manashatwar-Exposure-Ledger-Exposure-Weighted-Realized-Externality-Ledger.git
+cd manashatwar-Exposure-Ledger-Exposure-Weighted-Realized-Externality-Ledger
 
 # Install Foundry dependencies
 forge install
@@ -256,7 +255,7 @@ DESTINATION_CALLBACK_PROXY_ADDR=0xc9f36411C9897e7F959D99ffca2a0Ba7ee0D7bDA
 
 ## Deployment (Future)
 
-Deployment steps will be added once implementation is complete. See [TASKS.md](.kiro/TASKS.md) Task 6.5 for planned deployment process.
+Deployment steps will be added once implementation is complete.
 
 ---
 
@@ -325,8 +324,6 @@ Different goals, different models.
 
 This project is under active development. Contributions welcome after v1.0 implementation is complete.
 
-For now, see [TASKS.md](.kiro/TASKS.md) for implementation progress.
-
 ---
 
 ## License
@@ -337,8 +334,8 @@ MIT License - see [LICENSE](LICENSE)
 
 ## Contact
 
-- **GitHub:** [manashatwar/ILflow-hook-](https://github.com/manashatwar/ILflow-hook-)
-- **Documentation:** [.kiro/docs/](.kiro/docs/)
+- **GitHub:** [manashatwar/manashatwar-Exposure-Ledger-Exposure-Weighted-Realized-Externality-Ledger](https://github.com/manashatwar/manashatwar-Exposure-Ledger-Exposure-Weighted-Realized-Externality-Ledger)
+- **Documentation:** [docs/](https://github.com/manashatwar/manashatwar-Exposure-Ledger-Exposure-Weighted-Realized-Externality-Ledger/tree/main/docs)
 
 ---
 
