@@ -100,27 +100,35 @@ Proven sound: Sum of all LP shares = Total RSPE (conservation property)
 ```
 .
 ├── src/
-│   ├── ExposureLedgerHook.sol       # Main Uniswap v4 hook (TODO)
+│   ├── ExposureLedgerHook.sol          # Main Uniswap v4 hook
 │   ├── reactive/
-│   │   └── ExposureLedgerRSC.sol    # Reactive observer contract (TODO)
+│   │   └── ExposureLedgerRSC.sol       # Reactive Smart Contract
+│   ├── oracle/
+│   │   ├── ReactiveOracleAdapter.sol   # Oracle adapter (production)
+│   │   ├── ChainlinkPriceOracle.sol    # Chainlink adapter
+│   │   └── DIAPriceOracle.sol          # DIA adapter
 │   └── interfaces/
-│       └── IExposureLedger.sol      # Public interface (TODO)
+│       ├── IReferencePriceOracle.sol   # Oracle interface
+│       └── IExposureLedger.sol         # Hook interface
 ├── test/
-│   ├── ExposureLedgerHook.t.sol     # Unit tests (TODO)
-│   ├── Attribution.t.sol            # Attribution logic tests (TODO)
-│   ├── Segments.t.sol               # Segment lifecycle tests (TODO)
-│   └── Integration.t.sol            # End-to-end tests (TODO)
+│   ├── unit/                           # Unit tests
+│   ├── integration/                    # Integration tests
+│   └── mocks/
+│       └── MockReferencePriceOracle.sol # Mock oracle for testing
 ├── script/
-│   └── Deploy.s.sol                 # Deployment script (TODO)
-├── .kiro/
-│   ├── docs/
-│   │   ├── RESEARCH.md              # Academic research specification
-│   │   ├── REQUIREMENTS.md          # Engineering requirements
-│   │   └── DESIGN.md                # Technical design
-│   ├── ARCHITECTURE_VALIDATION.md   # Problem-solution fit analysis
-│   ├── TASKS.md                     # Implementation roadmap
-│   └── PROJECT_OVERVIEW.md          # Project overview
-└── README.md                        # This file
+│   ├── DeployExposureLedger.s.sol      # Deploy hook (Sepolia)
+│   ├── DeployRSC.s.sol                 # Deploy RSC (Reactive)
+│   ├── DeployReactiveOracleAdapter.s.sol # Deploy oracle adapter
+│   ├── DeployOracleReactive.s.sol      # Deploy Chainlink oracle
+│   └── E2ETestFlow.s.sol               # End-to-end test
+├── docs/
+│   ├── RESEARCH.md                     # Academic research specification
+│   ├── REQUIREMENTS.md                 # Engineering requirements
+│   ├── DESIGN.md                       # Technical design
+│   └── ARCHITECTURE_VALIDATION.md      # Problem-solution fit analysis
+├── lib/                                # Foundry dependencies
+├── .env.example                        # Environment variables template
+└── README.md                           # This file
 ```
 
 ---
