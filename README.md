@@ -97,37 +97,29 @@ Proven sound: Sum of all LP shares = Total RSPE (conservation property)
 
 ## Project Structure
 
-```
+```text
 .
 ├── src/
 │   ├── ExposureLedgerHook.sol          # Main Uniswap v4 hook
+│   ├── ReactiveCallbackRelayer.sol     # Sepolia callback Relayer
+│   ├── ILFlowRSC.sol                   # Base RSC abstraction
 │   ├── reactive/
-│   │   └── ExposureLedgerRSC.sol       # Reactive Smart Contract
-│   ├── oracle/
-│   │   ├── ReactiveOracleAdapter.sol   # Oracle adapter (production)
-│   │   ├── ChainlinkPriceOracle.sol    # Chainlink adapter
-│   │   └── DIAPriceOracle.sol          # DIA adapter
+│   │   └── ExposureLedgerRSC.sol       # True Reactive Smart Contract (Event listener)
 │   └── interfaces/
-│       ├── IReferencePriceOracle.sol   # Oracle interface
 │       └── IExposureLedger.sol         # Hook interface
 ├── test/
-│   ├── unit/                           # Unit tests
-│   ├── integration/                    # Integration tests
-│   └── mocks/
-│       └── MockReferencePriceOracle.sol # Mock oracle for testing
+│   ├── Phase3Test.t.sol                # Integration test entry point
+│   ├── ExposureLedger*.t.sol           # Core test suites
+│   └── mocks/                          # Mock PoolManagers & Routers
 ├── script/
-│   ├── DeployExposureLedger.s.sol      # Deploy hook (Sepolia)
-│   ├── DeployRSC.s.sol                 # Deploy RSC (Reactive)
-│   ├── DeployReactiveOracleAdapter.s.sol # Deploy oracle adapter
-│   ├── DeployOracleReactive.s.sol      # Deploy Chainlink oracle
-│   └── E2ETestFlow.s.sol               # End-to-end test
-├── docs/
-│   ├── RESEARCH.md                     # Academic research specification
-│   ├── REQUIREMENTS.md                 # Engineering requirements
-│   ├── DESIGN.md                       # Technical design
-│   └── ARCHITECTURE_VALIDATION.md      # Problem-solution fit analysis
+│   ├── DeployRelayer.s.sol             # Deploy Relayer (Sepolia)
+│   ├── DeployRSC.s.sol                 # Deploy RSC (Reactive Lasna)
+│   ├── MineHookAddress.s.sol           # CREATE2 vanity address miner
+│   └── E2ETestFlow.s.sol               # End-to-end full deployment test flow
+├── .kiro/                              # Comprehensive documentation folder
 ├── lib/                                # Foundry dependencies
 ├── .env.example                        # Environment variables template
+├── QUICKSTART.md                       # E2E Deployment and Startup Guide
 └── README.md                           # This file
 ```
 
@@ -142,35 +134,7 @@ Proven sound: Sum of all LP shares = Total RSPE (conservation property)
 | [DESIGN.md](https://github.com/manashatwar/manashatwar-Exposure-Ledger-Exposure-Weighted-Realized-Externality-Ledger/blob/main/docs/DESIGN.md) | Technical design with state machines, complete Solidity interfaces, gas optimization |
 | [ARCHITECTURE_VALIDATION.md](https://github.com/manashatwar/manashatwar-Exposure-Ledger-Exposure-Weighted-Realized-Externality-Ledger/blob/main/docs/ARCHITECTURE_VALIDATION.md) | 50-page validation that the architecture solves the problem (Score: 9/10) |
 
----
 
-## Implementation Status
-
-**Current Phase:** Pre-Implementation (Documentation Complete) ✅
-
-**Next Steps:** Implementation tasks tracked internally.
-
-### Phase 1: Core Infrastructure (Week 1-2) - TODO
-- [ ] Create ExposureLedgerHook contract
-- [ ] Implement data structures (SwapEpisode, LPExposureSegment)
-- [ ] Implement hook functions (afterSwap, beforeAdd/Remove)
-
-### Phase 2: Reactive Integration (Week 3) - TODO
-- [ ] Create Reactive Smart Contract (RSC)
-- [ ] Implement resolution callback
-- [ ] Add manual fallback (7-day timeout)
-
-### Phase 3: Attribution (Week 4) - TODO
-- [ ] Implement attribution logic
-- [ ] Add zero liquidity safety check
-- [ ] Optimize for gas (O(N_exposed))
-
-### Phase 4: Testing (Week 5-6) - TODO
-- [ ] Unit tests (>95% coverage)
-- [ ] Integration tests
-- [ ] Security review
-
----
 
 ## Key Features
 
