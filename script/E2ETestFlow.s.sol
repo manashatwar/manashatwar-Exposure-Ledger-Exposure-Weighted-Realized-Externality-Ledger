@@ -41,7 +41,7 @@ contract E2ETestFlow is Script {
     uint160 constant SQRT_PRICE_1_1 = 79228162514264337593543950336;
 
     function run() external {
-        address deployer = vm.envAddress("CLIENT_WALLET");
+        address deployer = msg.sender;
 
         console.log("=== E2E Test Flow ===");
         console.log("Deployer:", deployer);
