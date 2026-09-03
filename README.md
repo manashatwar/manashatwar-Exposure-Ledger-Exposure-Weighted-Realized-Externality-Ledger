@@ -1,6 +1,6 @@
 # Exposure Ledger — Position-Level MEV Attribution for Uniswap v4
 
-**Status:** 🚧 Under Development  
+ 
 **Version:** v1.0 (First Version)  
 **Target:** Uniswap v4 + Reactive Network
 
