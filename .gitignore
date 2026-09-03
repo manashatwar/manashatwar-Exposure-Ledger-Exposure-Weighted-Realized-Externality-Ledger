@@ -2,14 +2,19 @@
 cache/
 out/
 
-# Ignores development (and goerli) broadcast logs
-!/broadcast
-/broadcast/*/31337/
-/broadcast/*/5/
-/broadcast/**/dry-run/
+# Foundry broadcast and logs
+broadcast/
+scratch/
 
-# Dotenv file
+# IDE
+.vscode/
+
+# Environment variables
 .env
+.env.*
 
 # Node modules
 node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.DS_Store
