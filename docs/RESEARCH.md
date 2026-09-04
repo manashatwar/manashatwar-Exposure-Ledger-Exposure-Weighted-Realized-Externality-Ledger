@@ -22,10 +22,10 @@ Unlike pool-level LVR metrics, Exposure Ledger tracks **which specific LP positi
 
 | **For...** | **Read** | **Purpose** |
 |------------|----------|-------------|
-| **Researchers** | [`.kiro/docs/RESEARCH.md`](.kiro/docs/RESEARCH.md) | Academic foundation, formal proofs, mathematical model |
-| **Engineers** | [`.kiro/docs/REQUIREMENTS.md`](.kiro/docs/REQUIREMENTS.md) | Functional requirements, formal invariants, security properties |
-| **Developers** | [`.kiro/docs/DESIGN.md`](.kiro/docs/DESIGN.md) | Complete contracts, state machines, implementation guide |
-| **Project Managers** | [`.kiro/PROJECT_OVERVIEW.md`](.kiro/PROJECT_OVERVIEW.md) | Roadmap, architecture, implementation plan |
+| **Researchers** | [`.kiro/docs/RESEARCH.md`](docs/RESEARCH.md) | Academic foundation, formal proofs, mathematical model |
+| **Engineers** | [`.kiro/docs/REQUIREMENTS.md`](docs/REQUIREMENTS.md) | Functional requirements, formal invariants, security properties |
+| **Developers** | [`.kiro/docs/DESIGN.md`](docs/DESIGN.md) | Complete contracts, state machines, implementation guide |
+| **Project Managers** | [`.kiro/PROJECT_OVERVIEW.md`](.PROJECT_OVERVIEW.md) | Roadmap, architecture, implementation plan |
 
 ---
 
