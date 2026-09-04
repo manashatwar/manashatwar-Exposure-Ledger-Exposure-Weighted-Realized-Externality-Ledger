@@ -22,10 +22,10 @@ Unlike pool-level LVR metrics, Exposure Ledger tracks **which specific LP positi
 
 | **For...** | **Read** | **Purpose** |
 |------------|----------|-------------|
-| **Researchers** | [`.kiro/docs/RESEARCH.md`](docs/RESEARCH.md) | Academic foundation, formal proofs, mathematical model |
-| **Engineers** | [`.kiro/docs/REQUIREMENTS.md`](docs/REQUIREMENTS.md) | Functional requirements, formal invariants, security properties |
-| **Developers** | [`.kiro/docs/DESIGN.md`](docs/DESIGN.md) | Complete contracts, state machines, implementation guide |
-| **Project Managers** | [`.kiro/PROJECT_OVERVIEW.md`](.PROJECT_OVERVIEW.md) | Roadmap, architecture, implementation plan |
+| **Researchers** | [RESEARCH.md](RESEARCH.md) | Academic foundation, formal proofs, mathematical model |
+| **Engineers** | [REQUIREMENTS.md](REQUIREMENTS.md) | Functional requirements, formal invariants, security properties |
+| **Developers** | [DESIGN.md](DESIGN.md) | Complete contracts, state machines, implementation guide |
+| **Project Managers** | [PROJECT_OVERVIEW.md](../PROJECT_OVERVIEW.md) | Roadmap, architecture, implementation plan |
 
 ---
 
@@ -69,7 +69,7 @@ LP Queries: "My MEV-adjusted P&L"
 
 ### 📚 Complete Technical Documentation
 
-**1. [RESEARCH.md](.kiro/docs/RESEARCH.md) — Academic Foundation**
+**1. [RESEARCH.md](RESEARCH.md) — Academic Foundation**
 - Formal mathematical model with semantic notation
 - **Theorem 3.1:** RSPE conservativeness proof
 - **Theorem 3.2:** Attribution soundness proof
@@ -78,7 +78,7 @@ LP Queries: "My MEV-adjusted P&L"
 - 4 testable research hypotheses
 - Complete academic references
 
-**2. [REQUIREMENTS.md](.kiro/docs/REQUIREMENTS.md) — Engineering Specification**
+**2. [REQUIREMENTS.md](REQUIREMENTS.md) — Engineering Specification**
 - 7 functional requirements (FR1-FR7) with SMART acceptance criteria
 - Formal invariants (I.G.1-4, I.T.1-3, per-requirement invariants)
 - Security properties (authorization, idempotency, atomicity)
@@ -86,7 +86,7 @@ LP Queries: "My MEV-adjusted P&L"
 - Failure mode analysis tables
 - 95% test coverage requirement
 
-**3. [DESIGN.md](.kiro/docs/DESIGN.md) — Implementation Guide**
+**3. [DESIGN.md](DESIGN.md) — Implementation Guide**
 - Complete state machine diagrams (Episode + LP Segment lifecycle)
 - Full Solidity contract implementations (650+ lines)
 - Gas optimization strategies (O(N_exposed) vs O(N_LPs))
@@ -94,7 +94,7 @@ LP Queries: "My MEV-adjusted P&L"
 - Comprehensive testing strategy (unit, integration, fuzz)
 - Deployment checklist
 
-**4. [PROJECT_OVERVIEW.md](.kiro/PROJECT_OVERVIEW.md) — Project Management**
+**4. [PROJECT_OVERVIEW.md](../PROJECT_OVERVIEW.md) — Project Management**
 - Implementation roadmap (3 phases)
 - Architecture diagrams
 - Key design decisions with rationale
@@ -238,21 +238,21 @@ struct LPExposureSegment {
 
 ### For Researchers
 
-1. Read [RESEARCH.md](.kiro/docs/RESEARCH.md) § Mathematical Model
+1. Read [RESEARCH.md](RESEARCH.md) § Mathematical Model
 2. Review formal proofs (Theorems 3.1, 3.2)
 3. Examine research hypotheses (H1-H4)
 4. Check prior art positioning
 
 ### For Engineers
 
-1. Read [REQUIREMENTS.md](.kiro/docs/REQUIREMENTS.md) for specifications
+1. Read [REQUIREMENTS.md](REQUIREMENTS.md) for specifications
 2. Review formal invariants and security properties
-3. Check [DESIGN.md](.kiro/docs/DESIGN.md) for implementation
+3. Check [DESIGN.md](DESIGN.md) for implementation
 4. Study state machine diagrams
 
 ### For Developers
 
-1. Start with [DESIGN.md](.kiro/docs/DESIGN.md) § Contract Specifications
+1. Start with [DESIGN.md](DESIGN.md) § Contract Specifications
 2. Copy contract skeletons (production-ready)
 3. Follow testing strategy (unit, integration, fuzz)
 4. Use deployment checklist

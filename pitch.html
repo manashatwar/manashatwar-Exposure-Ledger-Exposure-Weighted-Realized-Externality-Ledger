@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exposure Ledger - Pitch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #000;
+            overflow: hidden;
+            color: white;
+        }
+
+        .slides {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 100px;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 10;
+        }
+
+        /* Slide backgrounds with dramatic gradients */
+        .slide-1 { 
+            background: radial-gradient(circle at 30% 50%, #667eea 0%, #000 70%),
+                        linear-gradient(135deg, #000 0%, #1a1a2e 100%);
+        }
+        .slide-2 { 
+            background: radial-gradient(circle at 70% 50%, #dc2626 0%, #000 70%),
+                        linear-gradient(135deg, #1a1a2e 0%, #000 100%);
+        }
+        .slide-3 { 
+            background: radial-gradient(circle at 30% 50%, #10b981 0%, #000 70%),
+                        linear-gradient(135deg, #000 0%, #1a1a2e 100%);
+        }
+        .slide-4 { 
+            background: radial-gradient(circle at 70% 50%, #7c3aed 0%, #000 70%),
+                        linear-gradient(135deg, #1a1a2e 0%, #000 100%);
+        }
+        .slide-5 { 
+            background: radial-gradient(circle at 30% 50%, #fbbf24 0%, #000 70%),
+                        linear-gradient(135deg, #000 0%, #1a1a2e 100%);
+        }
+
+        h1 {
+            font-size: 120px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff 0%, #fbbf24 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 40px;
+            text-align: center;
+            line-height: 1.1;
+            letter-spacing: -2px;
+        }
+
+        h2 {
+            font-size: 56px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .hero-text {
+            font-size: 72px;
+            font-weight: 800;
+            text-align: center;
+            line-height: 1.3;
+            margin-bottom: 80px;
+            color: white;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 60px;
+            margin-top: 80px;
+            justify-content: center;
+        }
+
+        .stat {
+            text-align: center;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+            padding: 50px 70px;
+            border-radius: 30px;
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .stat-num {
+            font-size: 96px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .stat-label {
+            font-size: 28px;
+            color: rgba(255,255,255,0.8);
+            font-weight: 600;
+        }
+
+        .problem-box {
+            background: rgba(220, 38, 38, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 60px;
+            border-radius: 30px;
+            border: 3px solid rgba(220, 38, 38, 0.3);
+            margin: 40px 0;
+        }
+
+        .problem-text {
+            font-size: 48px;
+            font-weight: 700;
+            color: #fca5a5;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+            max-width: 1400px;
+        }
+
+        .solution-card {
+            background: rgba(16, 185, 129, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 50px;
+            border-radius: 30px;
+            border: 3px solid rgba(16, 185, 129, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-15px);
+        }
+
+        .solution-icon {
+            font-size: 80px;
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        .solution-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: #6ee7b7;
+            margin-bottom: 20px;
+        }
+
+        .solution-desc {
+            font-size: 24px;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.6;
+        }
+
+        .proof-box {
+            background: rgba(251, 191, 36, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 60px;
+            border-radius: 30px;
+            border: 3px solid rgba(251, 191, 36, 0.3);
+            text-align: center;
+        }
+
+        .proof-emoji {
+            font-size: 100px;
+            margin-bottom: 30px;
+        }
+
+        .proof-title {
+            font-size: 40px;
+            font-weight: 800;
+            color: #fbbf24;
+            margin-bottom: 20px;
+        }
+
+        .proof-detail {
+            font-size: 32px;
+            color: rgba(255,255,255,0.9);
+            font-weight: 600;
+        }
+
+        .tech-stack {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+            padding: 50px;
+            border-radius: 30px;
+            margin-top: 40px;
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .tech-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .tech-item {
+            flex: 1;
+            text-align: center;
+        }
+
+        .tech-arrow {
+            font-size: 48px;
+            color: #fbbf24;
+            margin: 0 20px;
+        }
+
+        .tech-name {
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .tech-desc {
+            font-size: 20px;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .future-list {
+            list-style: none;
+            margin-top: 60px;
+            max-width: 1200px;
+        }
+
+        .future-list li {
+            font-size: 42px;
+            padding: 35px 50px;
+            margin-bottom: 30px;
+            background: rgba(251, 191, 36, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            border-left: 8px solid #fbbf24;
+            color: rgba(255,255,255,0.95);
+            font-weight: 600;
+        }
+
+        .cta {
+            margin-top: 80px;
+            font-size: 52px;
+            font-weight: 900;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .nav {
+            position: fixed;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 30px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 20px 50px;
+            font-size: 22px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 700;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.1);
+        }
+
+        .counter {
+            position: fixed;
+            top: 50px;
+            right: 50px;
+            font-size: 36px;
+            font-weight: 800;
+            color: rgba(255,255,255,0.6);
+            z-index: 1000;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .slide.active > * {
+            animation: fadeInScale 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="counter"><span id="curr">1</span>/5</div>
+
+    <div class="slides">
+        <!-- SLIDE 1: The Hook -->
+        <div class="slide slide-1 active">
+            <h1>EXPOSURE LEDGER</h1>
+            <div class="hero-text">
+                Protocol-native <span class="highlight">position-level</span><br>
+                MEV attribution for Uniswap v4.<br><br>
+                <span style="font-size: 56px;">Track <span class="highlight">YOUR</span> adverse selection exposure.</span>
+            </div>
+            <div class="stats-row">
+                <div class="stat">
+                    <div class="stat-num">875+</div>
+                    <div class="stat-label">Live Transactions</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">200+</div>
+                    <div class="stat-label">Pages Research</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">9/10</div>
+                    <div class="stat-label">Architecture Score</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: Problem -->
+        <div class="slide slide-2">
+            <h2>The Problem</h2>
+            <div class="problem-box">
+                <div class="problem-text">
+                    "How much MEV did<br>
+                    <span style="font-size: 72px; color: #dc2626;">MY POSITION</span><br>
+                    actually eat?"
+                </div>
+            </div>
+            <div class="hero-text" style="font-size: 48px; margin-top: 60px;">
+                Current tools: Pool-level LVR averages<br>
+                <span class="highlight">But LPs can't see their OWN exposure</span><br><br>
+                <span style="font-size: 36px;">Tight range = high fees BUT also high MEV cost</span>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: Solution & Proof -->
+        <div class="slide slide-3">
+            <h2>The Solution</h2>
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <span class="solution-icon">📸</span>
+                    <div class="solution-title">Episode Model</div>
+                    <div class="solution-desc">Every swap = immutable Episode<br>Captures tick, liquidity, amounts</div>
+                </div>
+                <div class="solution-card">
+                    <span class="solution-icon">📊</span>
+                    <div class="solution-title">Segment Tracking</div>
+                    <div class="solution-desc">Who was exposed when<br>Historical exposure preserved</div>
+                </div>
+                <div class="solution-card">
+                    <span class="solution-icon">🧮</span>
+                    <div class="solution-title">RSPE = min(D, A)</div>
+                    <div class="solution-desc">Stale vs Adverse markout<br>Conservative, mathematically proven</div>
+                </div>
+                <div class="solution-card">
+                    <span class="solution-icon">⚖️</span>
+                    <div class="solution-title">Fair Attribution</div>
+                    <div class="solution-desc">Liquidity-weighted<br>Fees Earned - RSPE = Real P&L</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: Reactive Architecture -->
+        <div class="slide slide-4">
+            <h2>Episode-Based Architecture</h2>
+            <div class="tech-stack" style="max-width: 1400px;">
+                <div class="hero-text" style="font-size: 42px; margin-bottom: 50px;">
+                    <span class="highlight">Key Innovation:</span> Asynchronous measurement<br>
+                    Can't know if swap was arbitrage until observing <span class="highlight">future prices</span>
+                </div>
+                <div class="tech-flow" style="flex-direction: column; gap: 0;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; margin-bottom: 30px;">
+                        <div class="tech-item" style="flex: 1;">
+                            <div class="tech-name" style="font-size: 36px;">1. Uniswap v4 Hook (Sepolia)</div>
+                            <div class="tech-desc" style="font-size: 22px;">afterSwap → Create Episode<br>beforeAdd/Remove → Track Segments</div>
+                        </div>
+                        <div class="tech-arrow" style="font-size: 60px;">↓</div>
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; margin-bottom: 30px;">
+                        <div class="tech-item" style="flex: 1;">
+                            <div class="tech-name" style="font-size: 36px;">2. Reactive Network (Lasna)</div>
+                            <div class="tech-desc" style="font-size: 22px;">Subscribe to EpisodeCreated events<br>Wait H=50 blocks (~10 minutes)</div>
+                        </div>
+                        <div class="tech-arrow" style="font-size: 60px;">↓</div>
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; margin-bottom: 30px;">
+                        <div class="tech-item" style="flex: 1;">
+                            <div class="tech-name" style="font-size: 36px;">3. Calculate RSPE</div>
+                            <div class="tech-desc" style="font-size: 22px;">D = stale opportunity, A = adverse markout<br>RSPE = min(D, A) — Never over-attribute</div>
+                        </div>
+                        <div class="tech-arrow" style="font-size: 60px;">↓</div>
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: center; width: 100%;">
+                        <div class="tech-item" style="flex: 1;">
+                            <div class="tech-name" style="font-size: 36px;">4. Attribution Callback</div>
+                            <div class="tech-desc" style="font-size: 22px;">resolveEpisode() → Distribute proportionally<br>lpShare = RSPE × (lpLiquidity / activeLiquidity)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: Proof + Future Applications -->
+        <div class="slide slide-5">
+            <h2>Live Proof + Future Platform</h2>
+            <div class="solution-grid" style="margin-bottom: 50px;">
+                <div class="proof-box">
+                    <div class="proof-emoji">📡</div>
+                    <div class="proof-title">Reactscan</div>
+                    <div class="proof-detail">875+ SUCCESS txns<br>RSC Status: ACTIVE</div>
+                </div>
+                <div class="proof-box">
+                    <div class="proof-emoji">⛓️</div>
+                    <div class="proof-title">Etherscan</div>
+                    <div class="proof-detail">Episodes Created/Resolved<br>Attribution verified on-chain</div>
+                </div>
+            </div>
+            <ul class="future-list" style="margin-top: 40px;">
+                <li><span class="highlight">MEV Insurance</span> — LPs buy protection, data-driven premiums</li>
+                <li><span class="highlight">Dynamic Fees</span> — Auto-adjust fees based on real-time MEV risk</li>
+                <li><span class="highlight">Risk Scoring</span> — Historical MEV data guides LP optimization</li>
+            </ul>
+            <div class="cta" style="font-size: 48px;">
+                <span class="highlight">Measurement</span> enables <span class="highlight">Mitigation</span><br><br>
+                The platform for <span class="highlight">transparent liquidity provision</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav">
+        <button class="nav-btn" onclick="prev()">← Back</button>
+        <button class="nav-btn" onclick="next()">Next →</button>
+    </div>
+
+    <script>
+        let slide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function show() {
+            slides.forEach((s, i) => {
+                s.classList.toggle('active', i === slide);
+            });
+            document.getElementById('curr').textContent = slide + 1;
+        }
+
+        function next() {
+            if (slide < 4) { slide++; show(); }
+        }
+
+        function prev() {
+            if (slide > 0) { slide--; show(); }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') next();
+            if (e.key === 'ArrowLeft') prev();
+        });
+    </script>
+</body>
+</html>
