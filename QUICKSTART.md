@@ -1,4 +1,4 @@
-# ILFlow Hook Quickstart & Deployment Guide
+# Quickstart & Deployment Guide
 
 This guide contains the exact sequence of commands required to deploy the Reactive Smart Contract (RSC), connect it to the Hook, and execute an End-to-End (E2E) test on the testnets.
 
