@@ -62,6 +62,20 @@ Exposure Ledger tracks:
 
 ---
 
+## 🔗 Live Deployment
+
+**Proof of Concept - 875+ Transactions on Testnet:**
+
+- **Sepolia (Origin Chain)** - ExposureLedger Hook:  
+  [`0x30D4F958F727518e4E5949538877065aBF924a40`](https://sepolia.etherscan.io/address/0x30D4F958F727518e4E5949538877065aBF924a40)
+
+- **Reactive Lasna (Reactive Chain)** - Reactive Smart Contract:  
+  [`0xe336AF67b6499F84839618BFC81aE9db4d582D91`](https://reactscan.net/contract/0xe336AF67b6499F84839618BFC81aE9db4d582D91)
+
+**On-Chain Attribution Proof:** 0.0003996 ETH MEV attributed across episodes (verified on Etherscan events).
+
+---
+
 ## Key Concepts
 
 ### Episode
