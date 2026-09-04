@@ -70,7 +70,7 @@ Exposure Ledger tracks:
   [`0x30D4F958F727518e4E5949538877065aBF924a40`](https://sepolia.etherscan.io/address/0x30D4F958F727518e4E5949538877065aBF924a40)
 
 - **Reactive Lasna (Reactive Chain)** - Reactive Smart Contract:  
-  [`0xe336AF67b6499F84839618BFC81aE9db4d582D91`](https://reactscan.net/contract/0xe336AF67b6499F84839618BFC81aE9db4d582D91)
+  [`0xc2822c389635f547e417c52bcd581889db0553cf`](https://reactscan.net/contract/0xc2822c389635f547e417c52bcd581889db0553cf)
 
 **On-Chain Attribution Proof:** 0.0003996 ETH MEV attributed across episodes (verified on Etherscan events).
 
